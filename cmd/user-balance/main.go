@@ -47,12 +47,12 @@ func main() {
 
 	api.Routes(svc)
 
-	slog.Info("Turn on")
+	slog.Info("turn on")
 
 	if err := http.ListenAndServe(port, nil); err != http.ErrServerClosed {
 		slog.Error("server: %w", err)
 		return
 	}
 
-	slog.Info("Goodbye")
+	slog.Info("goodbye")
 }
