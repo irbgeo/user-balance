@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"net/http"
+	"strings"
 
 	httpSwagger "github.com/swaggo/http-swagger"
 
@@ -16,12 +17,16 @@ type svc interface {
 }
 
 func Routes(svc svc) {
-	http.HandleFunc("/", newHandlerFunc(svc))
-	http.HandleFunc("/swagger", httpSwagger.WrapHandler)
+	http.HandleFunc("/", handlerFunc(svc))
 }
 
-func newHandlerFunc(svc svc) http.HandlerFunc {
+func handlerFunc(svc svc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		if strings.Contains(r.URL.Path, "swagger") {
+			httpSwagger.WrapHandler(w, r)
+			return
+		}
+
 		switch r.Method {
 		case http.MethodGet:
 			getBalance(w, r, svc)

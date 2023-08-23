@@ -19,7 +19,6 @@ import (
 //	@Success		200	{string}	string	"User balance"
 //	@Failure		400	{string}	string	"Bad Request"
 //	@Failure		500	{string}	string	"Internal Server Error"
-//
 //	@Router			/{id} [get]
 func getBalance(w http.ResponseWriter, r *http.Request, svc svc) {
 	user, err := getUser(r)
@@ -48,7 +47,6 @@ func getBalance(w http.ResponseWriter, r *http.Request, svc svc) {
 //	@Success		200		{string}	string			"OK"
 //	@Failure		400		{string}	string			"Bad Request"
 //	@Failure		500		{string}	string			"Internal Server Error"
-//
 //	@Router			/{id} [post]
 func upBalance(w http.ResponseWriter, r *http.Request, svc svc) {
 	user, err := getUser(r)
@@ -86,7 +84,6 @@ func upBalance(w http.ResponseWriter, r *http.Request, svc svc) {
 //	@Success		200		{string}	string			"OK"
 //	@Failure		400		{string}	string			"Bad Request"
 //	@Failure		500		{string}	string			"Internal Server Error"
-//
 //	@Router			/{id} [put]
 func downBalance(w http.ResponseWriter, r *http.Request, svc svc) {
 	user, err := getUser(r)

@@ -12,10 +12,8 @@ import (
 	"github.com/irbgeo/user-balance/internal/storage/driver"
 )
 
-//	@title			Balance Service API
-//	@description	This is an example API for managing user balances.
-//	@host			localhost:8080
-//	@BasePath		/
+// @title			Balance Service API
+// @description	This is an example API for managing user balances.
 func main() {
 	slog.Info("configuration")
 
